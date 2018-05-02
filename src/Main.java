@@ -34,7 +34,7 @@ public class Main {
 		
 		Double limite = 3.0;
 		
-		Individuo individuo = new Individuo(espacos, valores, limite);
+		Individuo individuo1 = new Individuo(espacos, valores, limite);
 //		System.out.println("Espaços: " + individuo.getEspacos());
 //		System.out.println("Valores: " + individuo.getValores());
 //		System.out.println("Cromossomo: " + individuo.getCromossomo());		
@@ -48,10 +48,17 @@ public class Main {
 //			}
 //			
 //		}
+		System.out.println("\nindividuo 1 " + individuo1.getCromossomo());
+		individuo1.avaliacao();
+		System.out.println("Nota: " + individuo1.getNotaAvaliacao());
+		System.out.println("Espaço usado: " + individuo1.getEspacoUsado());
 		
-		individuo.avaliacao();
-		System.out.println("Nota: " + individuo.getNotaAvaliacao());
-		System.out.println("Espaço usado: " + individuo.getEspacoUsado());
+		Individuo individuo2  = new Individuo(espacos, valores, limite);
+		System.out.println("\nindividuo 2 " + individuo2.getCromossomo());
+		individuo2.avaliacao();
+		System.out.println("Nota: " + individuo2.getNotaAvaliacao());
+		System.out.println("Espaço usado: " + individuo2.getEspacoUsado());
+		
 		
 
 	}
