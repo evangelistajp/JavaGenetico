@@ -35,19 +35,23 @@ public class Main {
 		Double limite = 3.0;
 		
 		Individuo individuo = new Individuo(espacos, valores, limite);
-		System.out.println("Espaços: " + individuo.getEspacos());
-		System.out.println("Valores: " + individuo.getValores());
-		System.out.println("Cromossomo: " + individuo.getCromossomo());		
+//		System.out.println("Espaços: " + individuo.getEspacos());
+//		System.out.println("Valores: " + individuo.getValores());
+//		System.out.println("Cromossomo: " + individuo.getCromossomo());		
+//		
+//		System.out.println("\n Componentes da Carga");
+//		
+//		for (int i = 0; i < listaProdutos.size(); i++) {
+//			if (individuo.getCromossomo().get(i) ==  "1" ) {
+//				System.out.println(i+1 + " Nome: " + listaProdutos.get(i).getNome() +
+//				" RS: " + listaProdutos.get(i).getValor());
+//			}
+//			
+//		}
 		
-		System.out.println("\n Componentes da Carga");
-		
-		for (int i = 0; i < listaProdutos.size(); i++) {
-			if (individuo.getCromossomo().get(i) ==  "1" ) {
-				System.out.println(i+1 + " Nome: " + listaProdutos.get(i).getNome() +
-				" RS: " + listaProdutos.get(i).getValor());
-			}
-			
-		}
+		individuo.avaliacao();
+		System.out.println("Nota: " + individuo.getNotaAvaliacao());
+		System.out.println("Espaço usado: " + individuo.getEspacoUsado());
 		
 
 	}
