@@ -1,10 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class MainMutacao {
 	
-public static void main(String[] args) {
-		
+	public static void main(String[] args) {
 		List<Produto> listaProdutos = new ArrayList<Produto>();
 		listaProdutos.add(new Produto("Geladeira Dako",0.751, 999.90));
 		listaProdutos.add(new Produto("Geladeira Brastemp",0.635, 849.00));
@@ -33,20 +32,22 @@ public static void main(String[] args) {
 		}
 		
 		Double limite = 3.0;
-		Individuo individuo = new Individuo(espacos, valores, limite);
-		System.out.println("Espaços: " + individuo.getEspacos());
-		System.out.println("Valores: " + individuo.getValores());
-		System.out.println("Cromossomo: " + individuo.getCromossomo());		
 		
-		System.out.println("\n Componentes da Carga");
-		
-		for (int i = 0; i < listaProdutos.size(); i++) {
-			if (individuo.getCromossomo().get(i) ==  "1" ) {
-				System.out.println(i+1 + " Nome: " + listaProdutos.get(i).getNome() +
-				" RS: " + listaProdutos.get(i).getValor());
-			}
-			
-		}
-	}	
+		Individuo individuo1 = new Individuo(espacos, valores, limite);
 
+		System.out.println("\nindividuo 1 " + individuo1.getCromossomo());
+		individuo1.avaliacao();
+		System.out.println("Nota: " + individuo1.getNotaAvaliacao());
+		System.out.println("Espaço usado: " + individuo1.getEspacoUsado());
+		
+		Individuo individuo2  = new Individuo(espacos, valores, limite);
+		System.out.println("\nindividuo 2 " + individuo2.getCromossomo());
+		individuo2.avaliacao();
+		System.out.println("Nota: " + individuo2.getNotaAvaliacao());
+		System.out.println("Espaço usado: " + individuo2.getEspacoUsado());
+		
+		individuo1.mutacao(0.5);
+		individuo2.mutacao(0.05);
+	}
+	
 }

@@ -51,6 +51,7 @@ public class Individuo {
 	
 	public List Crossover (Individuo outro){
 		int corte = (int) Math.round(Math.random() * this.cromossomo.size());
+		System.out.println("\nCorte " + corte);
 		List filho1 = new ArrayList<>();
 		filho1.addAll(outro.getCromossomo().subList(0, corte));
 		filho1.addAll(this.cromossomo.subList(corte, this.cromossomo.size()));
@@ -63,8 +64,29 @@ public class Individuo {
 		filhos.add(new Individuo(this.espacos, this.valores, this.limiteEspaços));
 		filhos.add(new Individuo(this.espacos, this.valores, this.limiteEspaços));
 		
-		filhos
-		return null;
+		filhos.get(0).setCromossomo(filho1);
+		filhos.get(0).setGeracao(this.geracao + 1);
+		System.out.println("Filho 1 " + filhos.get(0).getCromossomo());
+		filhos.get(1).setCromossomo(filho2);
+		filhos.get(1).setGeracao(this.geracao + 1);
+		System.out.println("Filho 2 " + filhos.get(1).getCromossomo());
+		
+		return filhos;
+	}
+	
+	public Individuo mutacao(Double taxaMutacao){
+		System.out.println("\nAntes da mutação:   " + this.cromossomo);
+		for (int i = 0; i < this.cromossomo.size(); i++) {
+			if (Math.random() < taxaMutacao) {
+				if (this.cromossomo.get(i).equals("1")) {
+					this.cromossomo.set(i, "0");
+				}else{
+					this.cromossomo.set(i, "1");
+				}
+			}
+		}
+		System.out.println("Despois da Mutação: " + this.cromossomo + "\n");
+		return this;
 	}
 
 	public List getEspacos() {
