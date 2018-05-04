@@ -47,6 +47,15 @@ public static void main(String[] args) {
 			}
 			
 		}
+		
+		AlgoritmoGenetico ag = new AlgoritmoGenetico(20);
+		ag.inicizlizaPopulacao(espacos, valores, limite);
+		for (int i = 0; i < ag.getTamanhoPopulacao(); i++) {
+			System.out.println("***** Indiviudo " + i + " *******\n Espaços = "+
+					ag.getPopulacao().get(i).getEspacos() +
+					"\nValores = " +);
+			
+		}
 	}	
 
 }
