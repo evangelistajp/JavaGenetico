@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AlgoritmoGenetico {
 	
 	private int tamanhoPopulacao;
-	private List<Individuo> populacao = new ArrayList<>();
+	private List<Individuo> populacao = new ArrayList<Individuo>();
 	private int geracao;
 	private Individuo melhorSolucao;
 	
@@ -20,7 +21,46 @@ public class AlgoritmoGenetico {
 		}
 		this.melhorSolucao = this.populacao.get(0);
 	}
+	
+	public void ordenaPopulacao(){
+		Collections.sort(this.populacao);
+	}
 
+	public void melhorIndividuo(Individuo individuo){
+		if(individuo.getNotaAvaliacao() > this.melhorSolucao.getNotaAvaliacao()){
+			this.melhorSolucao = individuo;
+		}
+	}
+	
+	public Double somaAvaliacoes(){
+		Double soma = 0.0;
+		for(Individuo individuo:  this.populacao){
+			soma += individuo.getNotaAvaliacao();
+		}
+		return soma;
+	}
+	
+	public int selecionaPai(Double somaAvalicao){
+		int pai = -1;
+		Double valorSorteado = Math.random() * somaAvalicao;
+		Double soma = 0.0;
+		int i = 0;
+		while (i <this.populacao.size() && soma < valorSorteado){
+			soma += this.populacao.get(i).getNotaAvaliacao();
+			pai +=1;
+			i += 1;
+		}
+		return pai;
+	}
+	
+	public void visualizaGeracao(){
+		Individuo melhor = this.populacao.get(0);
+		System.out.println("G: " + this.populacao.get(0).getGeracao() +
+				" Valor: " + melhor.getNotaAvaliacao() +
+				" Espaço: " + melhor.getEspacoUsado() +
+				" Cromossomo: " + melhor.getCromossomo());
+	}
+	
 	public int getTamanhoPopulacao() {
 		return tamanhoPopulacao;
 	}

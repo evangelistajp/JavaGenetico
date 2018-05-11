@@ -34,27 +34,63 @@ public class MainCrossover {
 		
 		Double limite = 3.0;
 		
-		Individuo individuo1 = new Individuo(espacos, valores, limite);
-
-		System.out.println("\nindividuo 1 " + individuo1.getCromossomo());
-		individuo1.avaliacao();
-		System.out.println("Nota: " + individuo1.getNotaAvaliacao());
-		System.out.println("Espaço usado: " + individuo1.getEspacoUsado());
+//		Individuo individuo1 = new Individuo(espacos, valores, limite);
+//
+//		System.out.println("\nindividuo 1 " + individuo1.getCromossomo());
+//		individuo1.avaliacao();
+//		System.out.println("Nota: " + individuo1.getNotaAvaliacao());
+//		System.out.println("Espaço usado: " + individuo1.getEspacoUsado());
+//		
+//		Individuo individuo2  = new Individuo(espacos, valores, limite);
+//		System.out.println("\nindividuo 2 " + individuo2.getCromossomo());
+//		individuo2.avaliacao();
+//		System.out.println("Nota: " + individuo2.getNotaAvaliacao());
+//		System.out.println("Espaço usado: " + individuo2.getEspacoUsado());
+//		
+//		individuo1.Crossover(individuo2);
 		
-		Individuo individuo2  = new Individuo(espacos, valores, limite);
-		System.out.println("\nindividuo 2 " + individuo2.getCromossomo());
-		individuo2.avaliacao();
-		System.out.println("Nota: " + individuo2.getNotaAvaliacao());
-		System.out.println("Espaço usado: " + individuo2.getEspacoUsado());
-		
-		individuo1.Crossover(individuo2);
+		int tamanhoPopulacao = 20;
+		Double taxaMutacao = 0.01;
+		int numeroGeracoes = 100;
+		AlgoritmoGenetico ag = new AlgoritmoGenetico(tamanhoPopulacao);
 		
 		
+//		ag.inicizlizaPopulacao(espacos, valores, limite);
+//		for(Individuo individuo : ag.getPopulacao()){
+//			individuo.avaliacao();
+//		}
+//		ag.ordenaPopulacao();
+//		ag.melhorIndividuo(ag.getPopulacao().get(0));
+//		Double soma = ag.somaAvaliacoes();
+//		System.out.println("Soma das Avaliações: " + soma);
+//		System.out.println("\nMelhor solução para o problema: " +
+//				ag.getMelhorSolucao().getCromossomo() +
+//				" Nota: " +ag.getMelhorSolucao().getNotaAvaliacao() );
+//		Double probabilidadeMutacao = 0.01;
+//		List<Individuo> novaPopulacao = new ArrayList<>();
+//		for (int i = 0; i < ag.getPopulacao().size() / 2; i++) {
+//			int pai1 = ag.selecionaPai(soma);
+//			int pai2 = ag.selecionaPai(soma);
+//			
+//			List<Individuo> filhos = ag.getPopulacao().get(pai1).Crossover(ag.getPopulacao().get(pai2));
+//			novaPopulacao.add(filhos.get(0).mutacao(probabilidadeMutacao));
+//			novaPopulacao.add(filhos.get(1).mutacao(probabilidadeMutacao));
+//		}
+//				
+//		ag.setPopulacao(novaPopulacao);
+//		for (Individuo individuo : ag.getPopulacao()) {
+//			individuo.avaliacao();
+//		}
+//		ag.ordenaPopulacao();
+//		ag.melhorIndividuo(ag.getPopulacao().get(0));
+//		soma = ag.somaAvaliacoes();
+//		System.out.println("Soma das Avaliações: " + soma);
+//		System.out.println("\nMelhor solução para o problema: " +
+//				ag.getMelhorSolucao().getCromossomo() +
+//				" Nota: " +ag.getMelhorSolucao().getNotaAvaliacao() );
 		
 		
-
 	}
 	
 	
-
 }

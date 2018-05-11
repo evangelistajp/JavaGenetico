@@ -33,28 +33,46 @@ public static void main(String[] args) {
 		}
 		
 		Double limite = 3.0;
-		Individuo individuo = new Individuo(espacos, valores, limite);
-		System.out.println("Espaços: " + individuo.getEspacos());
-		System.out.println("Valores: " + individuo.getValores());
-		System.out.println("Cromossomo: " + individuo.getCromossomo());		
-		
-		System.out.println("\n Componentes da Carga");
-		
-		for (int i = 0; i < listaProdutos.size(); i++) {
-			if (individuo.getCromossomo().get(i) ==  "1" ) {
-				System.out.println(i+1 + " Nome: " + listaProdutos.get(i).getNome() +
-				" RS: " + listaProdutos.get(i).getValor());
-			}
-			
-		}
-		
-		AlgoritmoGenetico ag = new AlgoritmoGenetico(20);
+//		Individuo individuo = new Individuo(espacos, valores, limite);
+//		System.out.println("Espaços: " + individuo.getEspacos());
+//		System.out.println("Valores: " + individuo.getValores());
+//		System.out.println("Cromossomo: " + individuo.getCromossomo());		
+//		
+//		System.out.println("\n Componentes da Carga");
+//		
+//		for (int i = 0; i < listaProdutos.size(); i++) {
+//			if (individuo.getCromossomo().get(i) ==  "1" ) {
+//				System.out.println(i+1 + " Nome: " + listaProdutos.get(i).getNome() +
+//				" RS: " + listaProdutos.get(i).getValor());
+//			}
+//			
+//		}
+		int tamanhoPopulacao = 20;
+		AlgoritmoGenetico ag = new AlgoritmoGenetico(tamanhoPopulacao);
 		ag.inicizlizaPopulacao(espacos, valores, limite);
-		for (int i = 0; i < ag.getTamanhoPopulacao(); i++) {
-			System.out.println("***** Indiviudo " + i + " *******\n Espaços = "+
-					ag.getPopulacao().get(i).getEspacos() +
-					"\nValores = " +);
-			
+		for(Individuo individuo : ag.getPopulacao()){
+			individuo.avaliacao();
+		}
+		ag.ordenaPopulacao();
+		ag.melhorIndividuo(ag.getPopulacao().get(0));
+		
+//		for (int i = 0; i < ag.getTamanhoPopulacao(); i++) {
+//			System.out.println("\n***** Indiviudo " + i + " *******\n Espaços = "+
+//					ag.getPopulacao().get(i).getEspacos() +
+//					"\nValores = " + ag.getPopulacao().get(i).getValores()+
+//					"\nCromossomo = " + ag.getPopulacao().get(i).getCromossomo()+
+//					"\nNota = " + ag.getPopulacao().get(i).getNotaAvaliacao());
+//			
+//		}
+//		
+		System.out.println("\nMelhor solução para o problema: " +
+				ag.getMelhorSolucao().getCromossomo() +
+				" Nota: " +ag.getMelhorSolucao().getNotaAvaliacao() );
+		Double soma = ag.somaAvaliacoes();
+		System.out.println("Soma das Avaliações: " + soma);
+		for (int i = 0; i < ag.getPopulacao().size() / 2; i++) {
+			int pai1 = ag.selecionaPai(soma);
+			int pai2 = ag.selecionaPai(soma);
 		}
 	}	
 

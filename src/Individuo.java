@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Individuo {
+public class Individuo implements Comparable<Individuo> {
 	
 	private List espacos = new ArrayList<>();
 	private List valores= new ArrayList<>();
@@ -156,6 +156,17 @@ public class Individuo {
 
 	public void setEspacoUsado(Double espacoUsado) {
 		this.espacoUsado = espacoUsado;
+	}
+
+	@Override
+	public int compareTo(Individuo o) {
+		if(this.notaAvaliacao > o.getNotaAvaliacao()){
+			return -1;
+		}
+		if (this.notaAvaliacao < o.getNotaAvaliacao()) {
+			return 1;
+		}
+		return 0;
 	}
 	
 	
