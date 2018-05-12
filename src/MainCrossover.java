@@ -49,12 +49,17 @@ public class MainCrossover {
 //		
 //		individuo1.Crossover(individuo2);
 		
-		int tamanhoPopulacao = 20;
+		int tamanhoPopulacao = 50;
 		Double taxaMutacao = 0.01;
-		int numeroGeracoes = 100;
-		AlgoritmoGenetico ag = new AlgoritmoGenetico(tamanhoPopulacao);
-		
-		
+		int numeroGeracoes = 200;
+		AlgoritmoGenetico ag = new AlgoritmoGenetico(tamanhoPopulacao);		
+		List resultado = ag.resolver(taxaMutacao, numeroGeracoes, espacos, valores, limite);
+		for(int i = 0; i < listaProdutos.size(); i ++ ){
+			if (resultado.get(i).equals("1")) {
+				System.out.println("Nome: " + listaProdutos.get(i).getNome());
+			}
+		}
+				
 //		ag.inicizlizaPopulacao(espacos, valores, limite);
 //		for(Individuo individuo : ag.getPopulacao()){
 //			individuo.avaliacao();
@@ -88,6 +93,7 @@ public class MainCrossover {
 //		System.out.println("\nMelhor solução para o problema: " +
 //				ag.getMelhorSolucao().getCromossomo() +
 //				" Nota: " +ag.getMelhorSolucao().getNotaAvaliacao() );
+		
 		
 		
 	}
