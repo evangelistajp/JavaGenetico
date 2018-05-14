@@ -27,10 +27,10 @@ private static Logger logger = Logger.getLogger(ProdutoDAO.class);
 		List<Produto> produtos = null;
 		try {
 			Query q = this.getEntityManager()
-					.createQuery("from Usuario f");
+					.createQuery("from Produto f");
 			produtos = (List<Produto>) q.getResultList();
 		} catch (HibernateException e) {
-			throw new DAOException("Erro ao tentar pegar Usuarios", e);
+			throw new DAOException("Erro ao tentar pegar Produtos", e);
 		}
 		return produtos;
 	}

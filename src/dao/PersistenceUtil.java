@@ -14,7 +14,7 @@ public class PersistenceUtil {
 
     static {
         try {
-    		emf = Persistence.createEntityManagerFactory("produtos");
+    		emf = Persistence.createEntityManagerFactory("JavaGenetico");
     		emc = new ManagedEMContext(emf);
             logger.info("Fábrica de EntityManagers construída.");
         } catch (Throwable ex) {
