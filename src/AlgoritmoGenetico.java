@@ -9,6 +9,7 @@ public class AlgoritmoGenetico {
 	private List<Individuo> populacao = new ArrayList<Individuo>();
 	private int geracao;
 	private Individuo melhorSolucao;
+	private List<Individuo> melhoresCromossomos = new ArrayList<>();
 	
 	
 	public AlgoritmoGenetico(int tamanhoPopulacao) {
@@ -56,6 +57,7 @@ public class AlgoritmoGenetico {
 	
 	public void visualizaGeracao(){
 		Individuo melhor = this.populacao.get(0);
+		this.melhoresCromossomos.add(melhor);
 		System.out.println("G: " + this.populacao.get(0).getGeracao() +
 				" Valor: " + melhor.getNotaAvaliacao() +
 				" Espaço: " + melhor.getEspacoUsado() +
@@ -131,6 +133,14 @@ public class AlgoritmoGenetico {
 
 	public void setMelhorSolucao(Individuo melhorSolucao) {
 		this.melhorSolucao = melhorSolucao;
+	}
+
+	public List<Individuo> getMelhoresCromossomos() {
+		return melhoresCromossomos;
+	}
+
+	public void setMelhoresCromossomos(List<Individuo> melhoresCromossomos) {
+		this.melhoresCromossomos = melhoresCromossomos;
 	}
 	
 	
