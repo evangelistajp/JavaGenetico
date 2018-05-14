@@ -1,8 +1,13 @@
 package model;
 
+
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import dao.PersistenceUtil;
+import dao.ProdutoDAO;
 
 @Entity
 public class Produto {
@@ -12,6 +17,7 @@ public class Produto {
 	private String nome;
 	private Double espaco;
 	private Double valor;
+	private int quantidade;
 	
 
 	public Produto(String nome, Double espaco, Double valor) {
@@ -23,6 +29,9 @@ public class Produto {
 	public Produto(){
 		
 	}
+	
+
+	
 	
 	public long getId() {
 		return id;
@@ -50,5 +59,15 @@ public class Produto {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	
+	
 
 }
