@@ -1,6 +1,10 @@
 package model;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
@@ -20,17 +24,16 @@ public class Produto {
 	private int quantidade;
 	
 
-	public Produto(String nome, Double espaco, Double valor) {
+	public Produto(String nome, Double espaco, Double valor, int quantidade) {
 		this.nome = nome;
 		this.espaco = espaco;
 		this.valor = valor;
+		this.quantidade = quantidade;
 	}
 	
 	public Produto(){
 		
 	}
-	
-
 	
 	
 	public long getId() {
@@ -66,6 +69,12 @@ public class Produto {
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
+	}
+
+	@Override
+	public String toString() {
+		return "\nProduto [id=" + id + ", nome=" + nome + ", espaco=" + espaco + ", valor=" + valor + ", quantidade="
+				+ quantidade + "]\n";
 	}
 	
 	

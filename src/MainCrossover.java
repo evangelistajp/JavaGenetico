@@ -3,8 +3,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import org.jfree.ui.RefineryUtilities;
 
+import dao.PersistenceUtil;
+import dao.ProdutoDAO;
 import model.Produto;
 
 
@@ -13,8 +17,7 @@ public class MainCrossover {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		
 		List<Produto> listaProdutos = new ArrayList<Produto>();
-				
-		
+
 //		listaProdutos.add(new Produto("Geladeira Dako",0.751, 999.90,1));
 //		listaProdutos.add(new Produto("Geladeira Brastemp",0.635, 849.00,2));
 //		listaProdutos.add(new Produto("Geladeira Consul",0.870, 1199.89,6));
@@ -41,7 +44,7 @@ public class MainCrossover {
 			nomes.add(produto.getNome());	
 		}
 		
-		Double limite = 3.0;
+		Double limite = 10.0;
 		
 //		Individuo individuo1 = new Individuo(espacos, valores, limite);
 //
@@ -57,6 +60,10 @@ public class MainCrossover {
 //		System.out.println("Espaço usado: " + individuo2.getEspacoUsado());
 //		
 //		individuo1.Crossover(individuo2);
+		
+		EntityManager em = PersistenceUtil.getCurrentEntityManager();
+		ProdutoDAO produtoDAO = new ProdutoDAO(em);
+		System.out.println(produtoDAO.findAll());
 		
 		int tamanhoPopulacao = 20;
 		Double taxaMutacao = 0.01;

@@ -3,6 +3,13 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.persistence.EntityManager;
+
+import dao.PersistenceUtil;
+import dao.ProdutoDAO;
+import model.Produto;
+
 public class AlgoritmoGenetico {
 	
 	private int tamanhoPopulacao;
@@ -15,6 +22,8 @@ public class AlgoritmoGenetico {
 	public AlgoritmoGenetico(int tamanhoPopulacao) {
 		this.tamanhoPopulacao = tamanhoPopulacao;
 	}
+	
+	
 	
 	public void inicizlizaPopulacao(List espacos, List valores, Double limiteEspacos){
 		for (int i = 0; i < this.tamanhoPopulacao; i++) {
