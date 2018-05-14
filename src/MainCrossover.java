@@ -5,18 +5,13 @@ import java.util.List;
 
 import org.jfree.ui.RefineryUtilities;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Driver;
 
 public class MainCrossover {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		
 		List<Produto> listaProdutos = new ArrayList<Produto>();
-		Class.forName("com.mysql.jdbc.Driver");
-		
-		Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/produtos","root","1234");
-		
+				
 		
 //		listaProdutos.add(new Produto("Geladeira Dako",0.751, 999.90));
 //		listaProdutos.add(new Produto("Geladeira Brastemp",0.635, 849.00));
