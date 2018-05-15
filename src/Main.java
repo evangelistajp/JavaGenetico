@@ -24,6 +24,8 @@ public static void main(String[] args) {
 //		listaProdutos.add(new Produto("Ventilador Panasonic",0.496, 199.90));
 		
 		
+		
+		
 		List espacos = new ArrayList<>();
 		List valores = new ArrayList<>();
 		List nomes = new ArrayList<>();
