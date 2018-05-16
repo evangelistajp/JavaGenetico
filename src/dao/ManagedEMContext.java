@@ -27,7 +27,7 @@ public class ManagedEMContext {
 	 * @see CurrentSessionContext#currentSession
 	 */
 	public EntityManager currentEntityManager() {
-		EntityManager current = existingEntityManager( factory );
+		EntityManager current = existingEntityManager(factory);
 		if ( current == null ) {
 			throw new HibernateException( "No entity manager currently bound to execution context" );
 		}

@@ -8,10 +8,10 @@ import dao.ProdutoDAO;
 import model.Produto;
 
 public class MainBD {
-	
+	//Programa de inicialização do banco e povoamento do banco
 	public static void main(String[] args) {
 		
-		EntityManager em = PersistenceUtil.getCurrentEntityManager();
+		EntityManager em = PersistenceUtil.getEntityManager();
 		ProdutoDAO produtoDAO = new ProdutoDAO(em);
 		
 		if (produtoDAO.findAll().size() == 0) {
@@ -33,10 +33,13 @@ public class MainBD {
 			pr.add(new Produto("Ventilador Panasonic",0.496, 199.90,10));
 			
 			produtoDAO.beginTransaction();
-			for(Produto lpr : produtoDAO.findAll()){
+			for(Produto lpr : pr){
 				produtoDAO.insert(lpr);
 			}
 			produtoDAO.commit();
+			
+			
+			System.out.println(produtoDAO.findAll());
 		}
 
 	}
