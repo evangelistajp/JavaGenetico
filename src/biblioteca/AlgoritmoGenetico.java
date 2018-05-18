@@ -5,8 +5,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.jgap.Chromosome;
 import org.jgap.Configuration;
+import org.jgap.Gene;
 import org.jgap.IChromosome;
+import org.jgap.InvalidConfigurationException;
+import org.jgap.impl.IntegerGene;
 
 import dao.PersistenceUtil;
 import dao.ProdutoDAO;
@@ -46,7 +50,31 @@ public class AlgoritmoGenetico {
 				soma+= this.listaProdutos.get(i).getEspaco();
 			}
 		}
-		return null;
+		return soma;
 	}
+	
+	public void visualizaGeracao(IChromosome cromossomo, int geracao){
+		List lista = new ArrayList<>();
+		Gene[] genes = cromossomo.getGenes();
+		for (int i = 0; i < cromossomo.size(); i++) {
+			lista.add(genes[i].getAllele().toString() + " ");
+		}
+		
+		System.out.println("G: " + geracao + 
+				" Valor: " + cromossomo.getFitnessValue() +
+				" Espaços: " + somaEspacos(cromossomo)+
+				" Cromossomo: " + lista);
+	}
+	
+	public IChromosome criarCromossomo() throws InvalidConfigurationException{
+		Gene[] genes = new Gene [listaProdutos.size()];
+		for (int i = 0; i < genes.length; i++) {
+			genes[i] = new IntegerGene(configuracao, 0,1);
+			genes[i].setAllele(i);
+		}
+		IChromosome modelo = new Chromosome(configuracao, genes);
+		return modelo;
+	}
+	
 
 }
