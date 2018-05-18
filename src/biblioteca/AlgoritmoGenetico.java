@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 
 import org.jgap.Chromosome;
 import org.jgap.Configuration;
+import org.jgap.FitnessFunction;
 import org.jgap.Gene;
 import org.jgap.IChromosome;
 import org.jgap.InvalidConfigurationException;
@@ -76,5 +77,7 @@ public class AlgoritmoGenetico {
 		return modelo;
 	}
 	
-
+	public FitnessFunction criarFuncaoFitness(){
+		return new Avalicao(this);
+	}
 }
