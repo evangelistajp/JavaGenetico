@@ -9,7 +9,7 @@
 				<property name="hibernate.hbm2ddl.auto" value="update"/>
 				<property name="hibernate.connection.username" value="SA"/>
 				<property name="hibernate.connection.password" value=""/>
-				<property name="hibernate.connection.url" value=" jdbc:hsqldb:mem:JavaGenetico"/>
+				<property name="hibernate.connection.url" value="jdbc:hsqldb:file:./db/JavaGenetico;shutdown=true"/>
 			</properties>
 	</persistence-unit>
 </persistence>

@@ -37,10 +37,13 @@ public class MainBD {
 				produtoDAO.insert(lpr);
 			}
 			produtoDAO.commit();
+			em.close();
 			
 			
-			System.out.println(produtoDAO.findAll());
+			
 		}
+		System.out.println(produtoDAO.findAll());
+		System.exit(0);
 
 	}
 

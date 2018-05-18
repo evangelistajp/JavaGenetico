@@ -33,6 +33,17 @@ public class MainCrossover {
 //		listaProdutos.add(new Produto("Iphone 6",0.000089, 2911.12,5));
 //		listaProdutos.add(new Produto("Ventilador Panasonic",0.496, 199.90,10));
 		
+		EntityManager em = PersistenceUtil.getEntityManager();
+		ProdutoDAO produtoDAO = new ProdutoDAO(em);
+//		System.out.println(produtoDAO.findAll());
+		
+		produtoDAO.beginTransaction();
+		for(Produto lpr : produtoDAO.findAll()){
+			listaProdutos.add(lpr);
+		}
+		produtoDAO.commit();
+//		em.close();
+		
 		
 		List espacos = new ArrayList<>();
 		List valores = new ArrayList<>();
@@ -61,22 +72,21 @@ public class MainCrossover {
 //		
 //		individuo1.Crossover(individuo2);
 		
-		EntityManager em = PersistenceUtil.getCurrentEntityManager();
-		ProdutoDAO produtoDAO = new ProdutoDAO(em);
-		System.out.println(produtoDAO.findAll());
+
 		
 		int tamanhoPopulacao = 20;
 		Double taxaMutacao = 0.01;
 		int numeroGeracoes = 100;
 		AlgoritmoGenetico ag = new AlgoritmoGenetico(tamanhoPopulacao);		
 		List resultado = ag.resolver(taxaMutacao, numeroGeracoes, espacos, valores, limite);
+		System.out.println("\n");
 		for(int i = 0; i < listaProdutos.size(); i ++ ){
 			if (resultado.get(i).equals("1")) {
 				System.out.println("Nome: " + listaProdutos.get(i).getNome());
 			}
 		}
 		
-		Grafico g = new Grafico("Algoritmo Genetico", "Evolução das Soluções", ag.getMelhoresCromossomos());
+		Grafico g = new Grafico("\nAlgoritmo Genetico", "Evolução das Soluções", ag.getMelhoresCromossomos());
 		g.pack();
 		RefineryUtilities.centerFrameOnScreen(g);
 		g.setVisible(true);
@@ -116,7 +126,7 @@ public class MainCrossover {
 //				ag.getMelhorSolucao().getCromossomo() +
 //				" Nota: " +ag.getMelhorSolucao().getNotaAvaliacao() );
 		
-		
+		System.exit(0);
 		
 	}
 	

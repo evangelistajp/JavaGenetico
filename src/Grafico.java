@@ -7,10 +7,11 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
+import org.jgap.IChromosome;
 
 public class Grafico extends ApplicationFrame{
 	
-	private List<Individuo> melhoresCromossos = new ArrayList<Individuo>();
+	private List<IChromosome> melhoresCromossos = new ArrayList<>();
 	
 	public Grafico(String tituloJanela, String tituloGrafico, List melhores) {
 		super(tituloJanela);
@@ -30,7 +31,7 @@ public class Grafico extends ApplicationFrame{
 		DefaultCategoryDataset dados = new DefaultCategoryDataset();
 		
 		for (int i = 0; i < melhoresCromossos.size() ; i++) {
-			dados.addValue(melhoresCromossos.get(i).getNotaAvaliacao(), "Melhor Solução"
+			dados.addValue(melhoresCromossos.get(i).getFitnessValue(), "Melhor Solução"
 					, "" + i);
 		}
 		

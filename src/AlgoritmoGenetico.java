@@ -104,7 +104,7 @@ public class AlgoritmoGenetico {
 			Individuo melhor = this.getPopulacao().get(0);
 			this.melhorIndividuo(melhor);		
 		}
-		System.out.println("Melhor Solução G -> " + this.melhorSolucao.getGeracao() +
+		System.out.println("\nMelhor Solução G -> " + this.melhorSolucao.getGeracao() +
 				" Valor: " + this.melhorSolucao.getNotaAvaliacao() +
 				" Espaço: " + this.melhorSolucao.getEspacoUsado() +
 				" Cromossomo: "+ this.melhorSolucao.getCromossomo());
